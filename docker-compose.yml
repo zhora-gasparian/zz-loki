@@ -1,5 +1,3 @@
-version: "3.3"
-
 networks:
   loki:
   traefik:
@@ -53,7 +51,12 @@ services:
         EOF
         /run.sh
     image: grafana/grafana:latest
-    ports:
-      - "3000:3000"
+    # ports:
+      # - "3000:3000"
     networks:
       - loki
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.grafana.rule=Host(`grafana.zzbyte.dev`)"
+      - "traefik.http.services.grafana.loadbalancer.server.port=3000"
