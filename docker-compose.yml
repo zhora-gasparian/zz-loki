@@ -16,6 +16,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.loki.rule=Host(`loki.zzbyte.dev`)"
       - "traefik.http.services.loki.loadbalancer.server.port=3100"
+      - "traefik.http.services.loki.loadbalancer.server.scheme=http"
 
   promtail:
     image: grafana/promtail:latest
