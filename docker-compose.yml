@@ -77,9 +77,10 @@ services:
       options:
         loki-url: http://loki:3100/loki/api/v1/push
   prometheus:
-      image: prom/prometheus
+      build:
+        context: .
+        dockerfile: Dockerfile
       volumes:
-        - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
         - /Users/zz_mm/Desktop/prometheus/prometheus:/prometheus
       command:
         - '--config.file=/etc/prometheus/prometheus.yml'
