@@ -79,7 +79,7 @@ services:
   prometheus:
       image: prom/prometheus
       volumes:
-        - /Users/zz_mm/Desktop/prometheus/etc/prometheus:/etc/prometheus
+        - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
         - /Users/zz_mm/Desktop/prometheus/prometheus:/prometheus
       command:
         - '--config.file=/etc/prometheus/prometheus.yml'
