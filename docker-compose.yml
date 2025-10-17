@@ -5,7 +5,9 @@ networks:
 
 services:
   loki:
-    image: grafana/loki:latest
+    build:
+      context: ./loki
+      dockerfile: Dockerfile
     # ports:
       # - "3100:3100"
     volumes:
@@ -23,8 +25,12 @@ services:
       - "traefik.http.services.loki.loadbalancer.server.scheme=http"
 
   promtail:
-    image: grafana/promtail:latest
+    build:
+      context: ./promtail
+      dockerfile: Dockerfile
     command: -config.file=/etc/promtail/config.yml
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
     restart: unless-stopped
     networks:
       - loki
