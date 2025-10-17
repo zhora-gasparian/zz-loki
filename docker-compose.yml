@@ -79,7 +79,7 @@ services:
   prometheus:
       build:
         context: ./prometheus
-        dockerfile: ./prometheus/Dockerfile
+        dockerfile: Dockerfile
       volumes:
         - /Users/zz_mm/Desktop/prometheus/prometheus:/prometheus
       command:
