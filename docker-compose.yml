@@ -16,6 +16,7 @@ services:
       - traefik
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
       - "traefik.http.routers.loki.rule=Host(`loki.zzbyte.dev`)"
       - "traefik.http.services.loki.loadbalancer.server.port=3100"
       - "traefik.http.services.loki.loadbalancer.server.scheme=http"
@@ -63,6 +64,7 @@ services:
       - traefik
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=traefik_net"
       - "traefik.http.routers.grafana.rule=Host(`grafana.zzbyte.dev`)"
       - "traefik.http.services.grafana.loadbalancer.server.port=3000"
       - "traefik.http.services.grafana.loadbalancer.server.scheme=http"
