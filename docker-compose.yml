@@ -78,7 +78,7 @@ services:
         loki-url: http://loki:3100/loki/api/v1/push
   prometheus:
       build:
-        context: .
+        context: ./prometheus
         dockerfile: ./prometheus/Dockerfile
       volumes:
         - /Users/zz_mm/Desktop/prometheus/prometheus:/prometheus
