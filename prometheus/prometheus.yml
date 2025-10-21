@@ -7,4 +7,4 @@ scrape_configs:
       - targets: ['traefik:8080']  # Traefik metrics endpoint
   - job_name: node
     static_configs:
-      - targets: ['host.docker.internal:9100'] # node_exporter
+      - targets: ['node_exporter:9100']
