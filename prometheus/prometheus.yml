@@ -7,4 +7,4 @@ scrape_configs:
       - targets: ['traefik:8080']  # Traefik metrics endpoint
   - job_name: node
     static_configs:
-      - targets: ['node_exporter:9100']
+      - targets: ['localhost:9100'] # macos brew node_exporter

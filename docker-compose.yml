@@ -102,10 +102,3 @@ services:
         options:
           max-size: "10m"
           max-file: "3"
-  node_exporter:
-    image: quay.io/prometheus/node-exporter:latest
-    container_name: node_exporter
-    restart: unless-stopped
-    networks:
-      - loki
-      - traefik
