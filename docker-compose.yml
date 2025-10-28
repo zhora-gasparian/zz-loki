@@ -102,6 +102,11 @@ services:
   jaeger:
     image: jaegertracing/all-in-one:latest
     container_name: jaeger
+    environment:
+      - SPAN_STORAGE_TYPE=badger
+      - BADGER_DIRECTORY=/badger
+    volumes:
+      - /Users/zz_mm/Desktop/jaeger/data:/badger
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.jaeger.rule=Host(`jaeger.zzbyte.dev`)"
