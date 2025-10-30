@@ -115,3 +115,4 @@ services:
     networks:
       - loki
       - traefik
+    restart: unless-stopped
